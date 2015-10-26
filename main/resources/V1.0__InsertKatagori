@@ -1,0 +1,2 @@
+INSERT INTO katagori(id_katagori, nama_katagori) VALUES ('2','Perlengkapan Mandi'),
+  ('3','Perlengkapan Makan'),('4','Bahan Bangunan');

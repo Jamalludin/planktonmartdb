@@ -1,0 +1,4 @@
+SELECT pr.nama,pr.harga, ka.nama_katagori
+FROM produk pr
+  INNER JOIN katagori ka ON(pr.id_katagori = ka.id_katagori)
+WHERE pr.id_katagori = 1

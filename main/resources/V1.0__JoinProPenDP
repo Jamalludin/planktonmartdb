@@ -1,0 +1,4 @@
+SELECT dp.id_detail_penjualan,dp.jumlah_barang,dp.total,pro.id_produk,pe.id_penjualan
+FROM detail_penjualan dp
+  INNER JOIN penjualan pe ON (pe.id_penjualan = dp.id_penjualan)
+  INNER JOIN produk pro ON (pro.id_produk = dp.id_produk)

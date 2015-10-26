@@ -1,0 +1,117 @@
+
+CREATE TABLE member (
+                id_member INT NOT NULL,
+                nama VARCHAR(35) NOT NULL,
+                alamat VARCHAR(35) NOT NULL,
+                no_hp INT NOT NULL,
+                PRIMARY KEY (id_member)
+);
+
+
+CREATE TABLE katagori (
+                id_katagori INT NOT NULL,
+                nama_katagori VARCHAR(35) NOT NULL,
+                PRIMARY KEY (id_katagori)
+);
+
+
+CREATE TABLE produk (
+                id_produk INT NOT NULL,
+                id_katagori INT NOT NULL,
+                nama VARCHAR(35) NOT NULL,
+                harga INT NOT NULL,
+                PRIMARY KEY (id_produk)
+);
+
+
+CREATE TABLE kasir (
+                id_kasir INT NOT NULL,
+                nama VARCHAR(35) NOT NULL,
+                password VARCHAR(35) NOT NULL,
+                PRIMARY KEY (id_kasir)
+);
+
+
+CREATE TABLE penjualan (
+                id_penjualan INT AUTO_INCREMENT NOT NULL,
+                id_member INT NOT NULL,
+                id_kasir INT NOT NULL,
+                tanggal_penjualan DATE NOT NULL,
+                no_nota INT NOT NULL,
+                total_belanja INT NOT NULL,
+                PRIMARY KEY (id_penjualan)
+);
+
+
+CREATE TABLE detail_penjualan (
+                detail_penjual_id INT AUTO_INCREMENT NOT NULL,
+                total INT NOT NULL,
+                jumlah_barang INT NOT NULL,
+                id_kasir INT NOT NULL,
+                tanggal_pembelian DATE NOT NULL,
+                id_penjualan INT NOT NULL,
+                id_produk INT NOT NULL,
+                PRIMARY KEY (detail_penjual_id)
+);
+
+
+ALTER TABLE penjualan ADD CONSTRAINT member_penjualan_fk
+FOREIGN KEY (id_member)
+REFERENCES member (id_member)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE produk ADD CONSTRAINT katagori_produk_fk
+FOREIGN KEY (id_katagori)
+REFERENCES katagori (id_katagori)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE detail_penjualan ADD CONSTRAINT produk_detail_penjualan_fk
+FOREIGN KEY (id_produk)
+REFERENCES produk (id_produk)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE penjualan ADD CONSTRAINT kasir_penjualan_fk
+FOREIGN KEY (id_kasir)
+REFERENCES kasir (id_kasir)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE detail_penjualan ADD CONSTRAINT penjualan_detail_penjualan_fk
+FOREIGN KEY (id_penjualan)
+REFERENCES penjualan (id_penjualan)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+
+ALTER TABLE penjualan ADD CONSTRAINT member_penjualan_fk
+FOREIGN KEY (id_member)
+REFERENCES member (id_member)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE produk ADD CONSTRAINT katagori_produk_fk
+FOREIGN KEY (id_katagori)
+REFERENCES katagori (id_katagori)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE detail_penjualan ADD CONSTRAINT produk_detail_penjualan_fk
+FOREIGN KEY (id_produk)
+REFERENCES produk (id_produk)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE penjualan ADD CONSTRAINT kasir_penjualan_fk
+FOREIGN KEY (id_kasir)
+REFERENCES kasir (id_kasir)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
+
+ALTER TABLE detail_penjualan ADD CONSTRAINT penjualan_detail_penjualan_fk
+FOREIGN KEY (id_penjualan)
+REFERENCES penjualan (id_penjualan)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;

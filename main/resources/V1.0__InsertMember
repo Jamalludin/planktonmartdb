@@ -1,0 +1,4 @@
+INSERT INTO member(id_member, nama, alamat, no_hp)
+VALUES ('1', 'waqid', 'klaten', '089632660'),
+  ('2', ' tutik', 'yukum jaya', '089632661'),('3', 'dita', 'BTN', '089632662'),('4', 'andika', 'BTN', '089632663'),
+  ('5', 'temon', 'kekkah', '089632665'),('6', 'abdel', 'jakarta', '089632667'),('7', 'gita', 'barbaran', '089632669');
